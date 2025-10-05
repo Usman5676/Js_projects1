@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Result Sheet</title>
+</head>
+<body>
+  <script>
+    let studentName = prompt("Enter Student Name");
+    let fatherName = prompt("Enter Father Name");
+    let rollNo = prompt("Enter Roll No.");
+    let totalMarks = parseInt(prompt("Enter total marks for each subject")) || 100;
+    function getGrade(percentage) {
+      if (percentage >= 90) return "A+";
+      else if (percentage >= 80) return "A";
+      else if (percentage >= 70) return "B";
+      else if (percentage >= 60) return "C";
+      else if (percentage >= 50) return "D";
+      else if (percentage >= 40) return "E";
+      else return "Fail";
+    }
+    let phyObt = parseInt(prompt("Enter obtained marks of Physics")) || 0;
+    let phyPer = (phyObt / totalMarks) * 100;
+    let phyGrade = getGrade(phyPer);
+
+    let csObt = parseInt(prompt("Enter obtained marks of Computer Science")) || 0;
+    let csPer = (csObt / totalMarks) * 100;
+    let csGrade = getGrade(csPer);
+
+    
+    let chemObt = parseInt(prompt("Enter obtained marks of Chemistry")) || 0;
+    let chemPer = (chemObt / totalMarks) * 100;
+    let chemGrade = getGrade(chemPer);
+
+    
+    let engObt = parseInt(prompt("Enter obtained marks of English")) || 0;
+    let engPer = (engObt / totalMarks) * 100;
+    let engGrade = getGrade(engPer);
+
+
+    let urduObt = parseInt(prompt("Enter obtained marks of Urdu")) || 0;
+    let urduPer = (urduObt / totalMarks) * 100;
+    let urduGrade = getGrade(urduPer);
+
+    
+    let obtTotal = phyObt + csObt + chemObt + engObt + urduObt;
+    let grandTotal = totalMarks * 5;
+    let overallPer = (obtTotal / grandTotal) * 100;
+    let overallGrade = getGrade(overallPer);
+
+    
+    document.write("<h2 style='text-align:center; color:green;'>Student Result Sheet</h2>");
+    document.write("<p><b>Name:</b> " + studentName + "</p>");
+    document.write("<p><b>Father Name:</b> " + fatherName + "</p>");
+    document.write("<p><b>Roll No:</b> " + rollNo + "</p>");
+
+    document.write("<table border='1' cellspacing='0' cellpadding='8' width='100%'>");
+    document.write("<tr style='background-color:green; color:white;'><th>Subject</th><th>Obtained</th><th>Total</th><th>Percentage</th><th>Grade</th></tr>");
+
+    document.write("<tr><td style='color:green;'>Physics</td><td>" + phyObt + "</td><td>" + totalMarks + "</td><td>" + phyPer.toFixed(2) + "%</td><td>" + phyGrade + "</td></tr>");
+    document.write("<tr><td style='color:green;'>Computer Science</td><td>" + csObt + "</td><td>" + totalMarks + "</td><td>" + csPer.toFixed(2) + "%</td><td>" + csGrade + "</td></tr>");
+    document.write("<tr><td style='color:green;'>Chemistry</td><td>" + chemObt + "</td><td>" + totalMarks + "</td><td>" + chemPer.toFixed(2) + "%</td><td>" + chemGrade + "</td></tr>");
+    document.write("<tr><td style='color:green;'>English</td><td>" + engObt + "</td><td>" + totalMarks + "</td><td>" + engPer.toFixed(2) + "%</td><td>" + engGrade + "</td></tr>");
+    document.write("<tr><td style='color:green;'>Urdu</td><td>" + urduObt + "</td><td>" + totalMarks + "</td><td>" + urduPer.toFixed(2) + "%</td><td>" + urduGrade + "</td></tr>");
+
+    document.write("</table>");
+
+    document.write("<h3 style='color:green;'>Overall Result</h3>");
+    document.write("<p><b>Total Marks:</b> " + obtTotal + " / " + grandTotal + "</p>");
+    document.write("<p><b>Percentage:</b> " + overallPer.toFixed(2) + "%</p>");
+    document.write("<p><b>Grade:</b> " + overallGrade + "</p>");
+  </script>
+</body>
+</html>
